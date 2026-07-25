@@ -1,0 +1,12 @@
+# Add project dependencies here as they are introduced.
+numpy
+pandas
+matplotlib
+scikit-learn
+torch
+torchvision
+pybamm
+streamlit
+plotly
+joblib
+tqdm
