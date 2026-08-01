@@ -1,10 +1,13 @@
-"""Boilerplate module for fault injection logic.
+def inject_fault(cell, time_step):
+    """
+    Placeholder for future fault injection.
 
-This file will later contain functions that introduce gradual thermal and
-resistance-related faults into the simulated battery system.
-"""
+    In the next phase we will simulate:
+    - Higher internal resistance
+    - Faster temperature rise
+    - Slight voltage deviation
 
+    For now, this function does nothing.
+    """
 
-def inject_fault(*args, **kwargs):
-    """Placeholder fault injection function."""
     pass

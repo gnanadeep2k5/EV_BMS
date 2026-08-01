@@ -1,10 +1,18 @@
-"""Boilerplate module for exporting simulation outputs.
-
-This file will later support exporting processed data for downstream models,
-visualization, and reports.
-"""
+import os
+import pandas as pd
 
 
-def export_data(*args, **kwargs):
-    """Placeholder export function."""
-    pass
+def save_to_csv(data, filename="simulation_output.csv"):
+
+    os.makedirs("data", exist_ok=True)
+
+    filepath = os.path.join("data", filename)
+
+    print("Saving to:", os.path.abspath(filepath))   # <-- Add this line
+
+    df = pd.DataFrame(data)
+    df.to_csv(filepath, index=False)
+
+    print(f"\nCSV saved successfully to: {filepath}")
+
+    return df
