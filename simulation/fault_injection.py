@@ -1,13 +1,24 @@
 def inject_fault(cell, time_step):
     """
-    Placeholder for future fault injection.
-
-    In the next phase we will simulate:
-    - Higher internal resistance
-    - Faster temperature rise
-    - Slight voltage deviation
-
-    For now, this function does nothing.
+    Introduce a gradual fault
+    in Cell 3.
     """
 
-    pass
+    if cell.cell_id != 3:
+        return
+
+    # Fault begins after 10 seconds
+
+    if time_step >= 10:
+
+        # Resistance slowly increases
+
+        cell.internal_resistance += 0.0006
+
+        # Voltage drops slightly because of resistance
+
+        cell.voltage -= 0.0004
+
+        # Extra heating
+
+        cell.temperature += 0.03
