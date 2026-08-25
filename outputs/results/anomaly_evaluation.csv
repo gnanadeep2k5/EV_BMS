@@ -1,12 +1,12 @@
 Metric,Value
-Precision,0.75
-Recall,0.75
-F1-Score,0.75
-False Alarm Rate,0.04411764705882353
-True Negatives,650.0
-False Positives,30.0
-False Negatives,30.0
-True Positives,90.0
+Precision,0.7655172413793103
+Recall,0.925
+F1-Score,0.8377358490566038
+False Alarm Rate,0.05
+True Negatives,646.0
+False Positives,34.0
+False Negatives,9.0
+True Positives,111.0
 Fault Start Time,80.0
-First Detection Time,88.0
-Detection Delay,8.0
+First Detection Time,89.0
+Detection Delay,9.0

@@ -9,7 +9,7 @@ def inject_fault(cell, time_step):
 
     # Fault begins after 10 seconds
 
-    if time_step >= 10:
+    if time_step >= 80:
 
         # Resistance slowly increases
 
