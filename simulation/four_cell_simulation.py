@@ -7,8 +7,10 @@ def run_simulation():
 
     print("\nStarting Battery Simulation...\n")
 
-    # Create four healthy cells
-    battery_pack = [BatteryCell(i) for i in range(1, 5)]
+    battery_pack = [
+        BatteryCell(i)
+        for i in range(1, 5)
+    ]
 
     simulation_data = []
 
@@ -16,15 +18,34 @@ def run_simulation():
 
     for time_step in range(simulation_time):
 
+        # Store temperatures before updating cells
+        previous_temperatures = {
+            cell.cell_id: cell.temperature
+            for cell in battery_pack
+        }
+
         for cell in battery_pack:
 
-            # Update battery state
-            cell.update()
+            # Find immediate neighbours
+            neighbour_temperatures = []
 
-            # Fault injection (currently empty)
+            if cell.cell_id > 1:
+                neighbour_temperatures.append(
+                    previous_temperatures[cell.cell_id - 1]
+                )
+
+            if cell.cell_id < len(battery_pack):
+                neighbour_temperatures.append(
+                    previous_temperatures[cell.cell_id + 1]
+                )
+
+            # Update cell using its neighbours
+            cell.update(neighbour_temperatures)
+
+            # Inject controlled fault
             inject_fault(cell, time_step)
 
-            # Store battery state
+            # Save state
             simulation_data.append(
                 cell.get_state(time_step)
             )
